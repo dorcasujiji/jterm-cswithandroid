@@ -51,14 +51,14 @@
       <file leaf-file-name="ScarneActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dorcasujiji/scarne/ScarneActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+            <state relative-caret-position="156">
+              <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3016#3152#0" expanded="true" />
-                <element signature="e#3151#3152#0" expanded="true" />
-                <element signature="e#3278#3882#0" expanded="true" />
-                <element signature="e#3881#3882#0" expanded="true" />
+                <element signature="e#3010#3146#0" expanded="true" />
+                <element signature="e#3145#3146#0" expanded="true" />
+                <element signature="e#3272#3534#0" expanded="true" />
+                <element signature="e#3533#3534#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2195,8 +2195,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="466" y="23" width="1134" height="797" extended-state="0" />
-    <editor active="true" />
+    <frame x="466" y="23" width="1134" height="797" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12722646" sideWeight="0.5051395" order="-1" side_tool="true" content_ui="tabs" />
@@ -2309,14 +2309,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dorcasujiji/scarne/ScarneActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+        <state relative-caret-position="156">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3016#3152#0" expanded="true" />
-            <element signature="e#3151#3152#0" expanded="true" />
-            <element signature="e#3278#3882#0" expanded="true" />
-            <element signature="e#3881#3882#0" expanded="true" />
+            <element signature="e#3010#3146#0" expanded="true" />
+            <element signature="e#3145#3146#0" expanded="true" />
+            <element signature="e#3272#3534#0" expanded="true" />
+            <element signature="e#3533#3534#0" expanded="true" />
           </folding>
         </state>
       </provider>

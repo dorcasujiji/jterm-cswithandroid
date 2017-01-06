@@ -80,9 +80,9 @@ public class ScarneActivity extends AppCompatActivity {
     private void computerTurn(){
         rollButton.setEnabled(false);
         holdButton.setEnabled(false);
-//        while(!presPlayer){
-//            roll();
-//        }
+        while(!presPlayer){
+            roll();
+        }
     }
 
 
@@ -105,19 +105,10 @@ public class ScarneActivity extends AppCompatActivity {
         holdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(presPlayer){
-                    userOverallScore += turnScore;
-                    presPlayer = false;
-                }
-                else{
-                    compOverallScore += turnScore;
-                    presPlayer = true;
-                    computerTurn();
-                }
-                // reset turnScore
+                userOverallScore += turnScore;
+                presPlayer = false;
                 turnScore =0;
-                // update scores display
-                scoreChange(userOverallScore,compOverallScore,turnScore);
+                computerTurn();
 
             }
         });

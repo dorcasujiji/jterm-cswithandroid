@@ -43,6 +43,14 @@ public class AnagramDictionary {
     private HashSet<String> wordSet = new HashSet<>();
     private HashMap<String, ArrayList<String>> lettersToWord = new HashMap<>();
 
+    @VisibleForTesting
+    public AnagramDictionary(String[] words) {
+        Log.d("Testing constructor", "reading test dictionary");
+        for (int i = 0; i < words.length; i++) {
+            update(words[i]); // Your code here
+        }
+    }
+
     public AnagramDictionary(InputStream wordListStream) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(wordListStream));
         String line;
@@ -96,12 +104,8 @@ public class AnagramDictionary {
         //
         // Your code here
         //
-        //for words in dictionary of same length
-        for(String dictWord: wordSet){
-            if(dictWord.length() == targetWord.length()&&isAnagram(targetWord,dictWord)){
-               result.add(dictWord);
-            }
-        }
+        //gets list of anagrams from HashMap
+        result = lettersToWord.get(sortLetters(targetWord));
         // return list of anagrams
         return result;
     }
@@ -142,6 +146,7 @@ public class AnagramDictionary {
         //
         // Your code here
         //
+
         return "stop";
     }
 }

@@ -33,9 +33,19 @@ public class SimpleDictionaryTest {
 
     @Test
     public void testIsWord() {
+
     }
 
     @Test
     public void testGetAnyWordStartingWith() {
+        String[] wordsArray = {"a", "apple", "cat"};
+        ArrayList<String> words = new ArrayList<>(Arrays.asList(wordsArray));
+        SimpleDictionary dict = new SimpleDictionary(words,0);
+
+        //assertEquals("", dict.getAnyWordStartingWith(""));
+        //assertEquals("apple", dict.getAnyWordStartingWith("app"));
+        //assertEquals("", dict.getAnyWordStartingWith(""));
+        assertEquals("apple", dict.getAnyWordStartingWith("app"));
+        //assertTrue("abc".compareTo("d") < 0);
     }
 }
