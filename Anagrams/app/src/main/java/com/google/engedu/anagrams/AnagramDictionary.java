@@ -31,6 +31,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
+import android.util.*;
 
 public class AnagramDictionary {
 
@@ -39,23 +40,54 @@ public class AnagramDictionary {
     private static final int MAX_WORD_LENGTH = 7;
     private Random random = new Random();
 
+    private HashSet<String> wordSet = new HashSet<>();
     private HashMap<String, ArrayList<String>> lettersToWord = new HashMap<>();
 
     public AnagramDictionary(InputStream wordListStream) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(wordListStream));
         String line;
         while((line = in.readLine()) != null) {
-            String word = line.trim();
+            String word = line.trim().toLowerCase();
             //
             //  Your code here
             //
+            update(word);
+
+        }
+        //Log.d("dictionary", wordList.get(10));
+    }
+
+    // Update wordSet and lettersToWord
+    private void update(String word){
+        String sortedWord = sortLetters(word);
+        wordSet.add(word);
+        if(lettersToWord.containsKey(sortedWord)){
+            // add to list of words
+            lettersToWord.get(sortedWord).add(word);
+        }
+        else{
+            // add sorted word and add to list of words
+            ArrayList<String> storedWords = new ArrayList<>();
+            storedWords.add(word);
+            lettersToWord.put(sortedWord,storedWords);
         }
     }
 
     public boolean isGoodWord(String word, String base) {
-        //
-        // Your code here
-        //
+//        boolean quest = false;
+//
+//        if(wordSet.contains(word)){
+//            if(base.contains(word)){
+//                quest = true;
+//            }
+//        }
+//        return quest;
+        if (!wordSet.contains(word)) {
+            return false;
+        }
+        if (word.contains(base)) {
+            return false;
+        }
         return true;
     }
 
@@ -64,30 +96,44 @@ public class AnagramDictionary {
         //
         // Your code here
         //
+        //for words in dictionary of same length
+        for(String dictWord: wordSet){
+            if(dictWord.length() == targetWord.length()&&isAnagram(targetWord,dictWord)){
+               result.add(dictWord);
+            }
+        }
+        // return list of anagrams
         return result;
+    }
+
+    static String sortLetters(String word){
+        char[] chars = word.toCharArray();
+        Arrays.sort(chars);
+        String sortWord = new String(chars);
+        // add here
+        return sortWord;
     }
 
     @VisibleForTesting
     static boolean isAnagram(String first, String second) {
+        boolean quest = false;
         //
         // Your code here
-        //
-        return true;
+        if(sortLetters(first).equals(sortLetters(second))){
+            quest = true;
+        }
+        return quest;
     }
 
-    @VisibleForTesting
-    static String sortLetters(String input) {
-        char[] chars = input.toCharArray();
-        //
-        // Your code here
-        //
-        return "";
-    }
 
     public ArrayList<String> getAnagramsWithOneMoreLetter(String word) {
         ArrayList<String> result = new ArrayList<String>();
         //
         // Your code here
+        char[] chars = word.toCharArray();
+        ;
+        Arrays.sort(chars);
+        String sortWord = new String(chars);
         //
         return result;
     }
