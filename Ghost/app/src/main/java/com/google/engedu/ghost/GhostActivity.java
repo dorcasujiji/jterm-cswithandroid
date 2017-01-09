@@ -30,6 +30,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Random;
 
+import static java.lang.Thread.sleep;
+
 
 public class GhostActivity extends AppCompatActivity {
     private static final String TAG = "GhostActivity";
@@ -53,11 +55,13 @@ public class GhostActivity extends AppCompatActivity {
         try {
             InputStream inputStream = assetManager.open("words.txt");
             // Initialize your dictionary from the InputStream.
+            dictionary = new SimpleDictionary(inputStream);
+
         } catch (IOException e) {
             Toast toast = Toast.makeText(this, "Could not load dictionary", Toast.LENGTH_LONG);
             toast.show();
         }
-        onStart(null);
+        //onStart(null);
     }
 
     @Override
@@ -89,7 +93,17 @@ public class GhostActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        return super.onKeyUp(keyCode, event);
+        char character = (char) event.getUnicodeChar();
+        if('A' <=  character && character <= 'z' ){
+            TextView text = (TextView) findViewById(R.id.ghostText);
+            currentWord = currentWord+ Character.toString(character);
+            text.setText(currentWord);
+            computerTurn();
+            return true;
+        }
+        else{
+            return super.onKeyUp(keyCode, event);
+        }
     }
 
     /**
@@ -98,8 +112,9 @@ public class GhostActivity extends AppCompatActivity {
      * @param view
      * @return true
      */
-    public boolean onStart(View view) {
+    public boolean reset(View view) {
         userTurn = random.nextBoolean();
+        currentWord = "";
         TextView text = (TextView) findViewById(R.id.ghostText);
         text.setText("");
         TextView label = (TextView) findViewById(R.id.gameStatus);
@@ -112,10 +127,56 @@ public class GhostActivity extends AppCompatActivity {
         return true;
     }
 
+
     private void computerTurn() {
         TextView label = (TextView) findViewById(R.id.gameStatus);
         // Do computer turn stuff then make it the user's turn again
-        userTurn = true;
-        label.setText(USER_TURN);
+        // checks if currentWord is a complete word
+
+        // ghost words
+        TextView text = (TextView) findViewById(R.id.ghostText);
+
+        if(dictionary.isWord(currentWord)){
+            text.setText(currentWord);
+            try {
+                sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            gameOver();
+        }
+        else{
+
+            // possible word
+            String possibleWord = dictionary.getAnyWordStartingWith(currentWord);
+            if(possibleWord == null){
+                // user spelt wrongly
+
+                text.setText(currentWord + " is not a valid word. You lost!");
+            }
+            else{
+                String addLetter = possibleWord.substring(currentWord.length(),currentWord.length()+1);
+                currentWord = currentWord + addLetter;
+                text.setText(currentWord);
+            }
+            // if computer completes word
+//            if(dictionary.isWord(currentWord)){
+//
+//                gameOver();
+//            }
+
+            // after computer turn
+            userTurn = true;
+            label.setText(USER_TURN);
+            // make it implement user turn
+
+
+        }
+
+    }
+
+    public void gameOver(){
+        TextView textView = (TextView) findViewById(R.id.ghostText);
+        textView.setText("GAME OVER");
     }
 }

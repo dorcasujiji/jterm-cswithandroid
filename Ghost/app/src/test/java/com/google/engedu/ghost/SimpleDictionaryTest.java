@@ -31,21 +31,30 @@ import static org.junit.Assert.assertTrue;
 
 public class SimpleDictionaryTest {
 
+    String[] wordsArray = {"a", "a", "ant", "cattle", "hello", "zoo"};
+    ArrayList<String> words = new ArrayList<>(Arrays.asList(wordsArray));
+    SimpleDictionary dict = new SimpleDictionary(words,0);
+
     @Test
     public void testIsWord() {
+        assertEquals("l", "apple".substring("app".length(), "app".length()+1));
 
     }
 
     @Test
     public void testGetAnyWordStartingWith() {
-        String[] wordsArray = {"a", "apple", "cat"};
-        ArrayList<String> words = new ArrayList<>(Arrays.asList(wordsArray));
-        SimpleDictionary dict = new SimpleDictionary(words,0);
-
-        //assertEquals("", dict.getAnyWordStartingWith(""));
-        //assertEquals("apple", dict.getAnyWordStartingWith("app"));
-        //assertEquals("", dict.getAnyWordStartingWith(""));
-        assertEquals("apple", dict.getAnyWordStartingWith("app"));
-        //assertTrue("abc".compareTo("d") < 0);
+        assertEquals("cattle", dict.getAnyWordStartingWith("ca"));
     }
+
+    @Test
+    public void testGetGoodWordStartingWith1(){
+        assertEquals("apple", dict.getGoodWordStartingWith("app"));
+    }
+
+    @Test
+    public void testGetGoodWordStartingWith2(){
+        assertEquals("applicatio", dict.getGoodWordStartingWith("app"));
+    }
+
+
 }

@@ -35,8 +35,8 @@
         android:layout_below="@id/diceImage">
 
         <Button
-            android:layout_width="70dp"
-            android:layout_height="48dp"
+            android:layout_width="70sp"
+            android:layout_height="48sp"
             android:text="ROLL"
             android:id="@+id/rollButton"
             android:layout_margin="5dp"
@@ -44,8 +44,8 @@
             />
 
         <Button
-            android:layout_width="70dp"
-            android:layout_height="48dp"
+            android:layout_width="70sp"
+            android:layout_height="48sp"
             android:text="HOLD"
             android:id="@+id/holdButton"
             android:layout_margin="5dp"
@@ -53,8 +53,8 @@
             />
 
         <Button
-            android:layout_width="70dp"
-            android:layout_height="48dp"
+            android:layout_width="70sp"
+            android:layout_height="48sp"
             android:text="RESET"
             android:id="@+id/resetButton"
             android:layout_margin="5dp"

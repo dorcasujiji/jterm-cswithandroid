@@ -44,27 +44,33 @@ public class ScarneActivity extends AppCompatActivity {
 
             if(randNum == 1){
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.dice1));
+                imageView.setContentDescription("One");
                 turnScore = 0;
                 if(presPlayer? false:true);
             }
             else if(randNum == 2){
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.dice2));
+                imageView.setContentDescription("Two");
                 turnScore += 2;
             }
             else if(randNum == 3){
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.dice3));
+                imageView.setContentDescription("Three");
                 turnScore += 3;
             }
             else if(randNum == 4){
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.dice4));
+                imageView.setContentDescription("Four");
                 turnScore += 4;
             }
             else if(randNum == 5){
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.dice5));
+                imageView.setContentDescription("Five");
                 turnScore += 5;
             }
             else if(randNum == 6){
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.dice6));
+                imageView.setContentDescription("Six");
                 turnScore += 6;
             }
             scoreChange(userOverallScore,compOverallScore,turnScore);
